@@ -23,11 +23,11 @@ Com esse script PHP você consegue gerar uma hash para sua apicação.
 
 🔐 Hash Frontend: 159c5f018c5ccfd38259d08492e92ea752e7eb90f01657d7dc55614448f1eca45b637b3bc11f731f3ba08097dbb3a1780b09d76986d6eb0283d49fd92a24eb0e
 
-📁 Backend: /var/www/html/meu-projeto-backend
+📁 Backend: /var/www/html/meu-projeto-backend/
 
 🔐 Hash Backend: 5168ef4facdea6b0d2237d775f82094731d6439db8e0c5b5487f871b6fcbb859731abdb9e9d0534855b72cc7c181a9ee45102d2e9b83b075d06880305cb5157f
 
-📁 API: /var/www/html/advintegra/meu-projeto-api
+📁 API: /var/www/html/advintegra/meu-projeto-api/
 
 🔐 Hash API: 990972d872c9b7b46f9c7f9699ac68650ccfb18eb26c1ac347de70ccd96703775d2aeed59e589cbebdd2c20533a96f5ffb8539e3911ab50ccfc23bafe5177c7b
 
@@ -44,7 +44,7 @@ Com esse script PHP você consegue gerar uma hash para sua apicação.
         "hash": "159c5f018c5ccfd38259d08492e92ea752e7eb90f01657d7dc55614448f1eca45b637b3bc11f731f3ba08097dbb3a1780b09d76986d6eb0283d49fd92a24eb0e"
     },
     "backend": {
-        "caminho": "/var/www/html/meu-projeto-backend",
+        "caminho": "/var/www/html/meu-projeto-backend/",
         "hash": "5168ef4facdea6b0d2237d775f82094731d6439db8e0c5b5487f871b6fcbb859731abdb9e9d0534855b72cc7c181a9ee45102d2e9b83b075d06880305cb5157f"
     },
     "api": {
