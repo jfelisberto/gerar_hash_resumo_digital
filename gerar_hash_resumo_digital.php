@@ -3,7 +3,7 @@
 /**
  * Usage
  *
- * php gerar_hash_resumo_digital.php /caminho_da_aplicacao_front-end /caminho_da_aplicacao_back-end /caminho_da_aplicacao_api
+ * php gerar_hash_summary_digital.php /caminho_da_aplicacao_front-end /caminho_da_aplicacao_back-end /caminho_da_aplicacao_api
  */
 
 /**
@@ -22,127 +22,127 @@ define('HASH', 'sha512');
  */
 function gerarHashDoDiretorio($path, $exts = ['php', 'tsx', 'ts', 'js', 'html', 'css', 'vue', 'json']) {
 
-    $conteudoTotal = '';
+    $content = '';
     $iterador = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path, FilesystemIterator::SKIP_DOTS));
 
-    foreach ($iterador as $arquivo) {
+    foreach ($iterador as $file) {
 
-        if ($arquivo->isFile() &&in_array(strtolower($arquivo->getExtension()), $exts)) {
+        if ($file->isFile() &&in_array(strtolower($file->getExtension()), $exts)) {
 
-            $conteudoTotal .= file_get_contents($arquivo->getRealPath());
+            $content .= file_get_contents($file->getReal_path());
 
         }
     }
 
-    return hash(HASH, $conteudoTotal);
+    return hash(HASH, $content);
 
 }
 
-$frontendPath = $argv[1] ?? false;
-$backendPath  = $argv[2] ?? false;
-$apiPath      = $argv[3] ?? false;
+$frontend_path = $argv[1] ?? false;
+$backend_path  = $argv[2] ?? false;
+$api_path      = $argv[3] ?? false;
 
-$hashFront = gerarHashDoDiretorio($frontendPath);
+$hash_front = gerarHashDoDiretorio($frontend_path);
 
-$hashMerged = $frontendPath;
+$hash_merged = $frontend_path;
 $app_first_key = 'Aplicacao';
 
-if (!empty($backendPath)) {
+if (!empty($backend_path)) {
 
-    $hashBack  = gerarHashDoDiretorio($backendPath);
-    $hashMerged .= $hashBack;
+    $hash_back  = gerarHashDoDiretorio($backend_path);
+    $hash_merged .= $hash_back;
     $app_first_key = 'Frontend';
 
 }
 
-if (!empty($apiPath)) {
+if (!empty($api_path)) {
 
-    $hashApi    = gerarHashDoDiretorio($apiPath);
-    $hashMerged .= $hashApi;
+    $hash_api    = gerarHashDoDiretorio($api_path);
+    $hash_merged .= $hash_api;
     $app_first_key = 'Frontend';
 
 }
 
-if (!empty($backendPath) || !empty($apiPath)) {
+if (!empty($backend_path) || !empty($api_path)) {
 
-    $hashFinal   = hash(HASH, $hashMerged);
+    $hash_final   = hash(HASH, $hash_merged);
 
 }
 
-$dataGeracao = date('Y-m-d H:i:s', time());
-$fileprefix  = date('YmdHis', time());
+$generate_date = date('Y-m-d H:i:s', time());
+$file_prefix  = date('YmdHis', time());
 
 /**
- * Criar array de resumo
+ * Criar array de Resumo
  */
-$resumo = [
-    'data_geracao' => $dataGeracao,
+$summary = [
+    'data_geracao' => $generate_date,
     strtolower($app_first_key) => [
-        'caminho' => $frontendPath,
-        'hash' => $hashFront,
+        'caminho' => $frontend_path,
+        'hash' => $hash_front,
     ]
 ];
 
 
-if (!empty($backendPath)) {
-    $resumo['backend'] = [
-        'caminho' => $backendPath,
-        'hash' => $hashBack,
+if (!empty($backend_path)) {
+    $summary['backend'] = [
+        'caminho' => $backend_path,
+        'hash' => $hash_back,
     ];
 }
 
-if (!empty($apiPath)) {
+if (!empty($api_path)) {
 
-    $resumo['api'] = [
-        'caminho' => $apiPath,
-        'hash' => $hashApi,
+    $summary['api'] = [
+        'caminho' => $api_path,
+        'hash' => $hash_api,
     ];
 
 }
 
 
-if (!empty($backendPath) || !empty($apiPath)) {
+if (!empty($backend_path) || !empty($api_path)) {
 
-    $resumo['hash_consolidada_do_sistema'] = $hashFinal;
+    $summary['hash_consolidada_do_sistema'] = $hash_final;
 
 }
 
 /**
  * Salva como JSON
  */
-file_put_contents($fileprefix . '_resumo_digital.json', json_encode($resumo, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+file_put_contents($file_prefix . '_summary_digital.json', json_encode($summary, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 
 /**
  * Salva como TXT (humano legível)
  */
 $txt = "=====================================================================\n
 📄 RESUMO DIGITAL DE HOMOLOGAÇÃO\n
-🕒 Data de geração: {$dataGeracao}\n
-📁 {$app_first_key}: {$frontendPath}\n
-🔐 Hash {$app_first_key}: {$hashFront}\n";
+🕒 Data de geração: {$generate_date}\n
+📁 {$app_first_key}: {$frontend_path}\n
+🔐 Hash {$app_first_key}: {$hash_front}\n";
 
-if (!empty($backendPath)) {
+if (!empty($backend_path)) {
 
-    $txt .= "\n📁 Backend: {$backendPath}\n\n🔐 Hash Backend: {$hashBack}\n";
-
-}
-
-if (!empty($apiPath)) {
-
-    $txt .= "\n📁 API: {$apiPath}\n\n🔐 Hash API: {$hashApi}\n";
+    $txt .= "\n📁 Backend: {$backend_path}\n\n🔐 Hash Backend: {$hash_back}\n";
 
 }
 
-if (!empty($backendPath) || !empty($apiPath)) {
+if (!empty($api_path)) {
 
-    $txt .= "\n🔒 Hash Consolidada do Sistema: {$hashFinal}\n";
+    $txt .= "\n📁 API: {$api_path}\n\n🔐 Hash API: {$hash_api}\n";
+
+}
+
+if (!empty($backend_path) || !empty($api_path)) {
+
+    $txt .= "\n🔒 Hash Consolidada do Sistema: {$hash_final}\n";
 
 }
 $txt .= "\n=====================================================================\n";
 
-file_put_contents($fileprefix . '_resumo_digital.txt', $txt);
+file_put_contents($file_prefix . '_summary_digital.txt', $txt);
 
 /**
- * Exibir o resumo digital no terminal
+ * Exibir o summary digital no terminal
  */
 print $txt . PHP_EOL;
