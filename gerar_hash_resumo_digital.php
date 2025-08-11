@@ -29,7 +29,7 @@ function gerarHashDoDiretorio($path, $exts = ['php', 'tsx', 'ts', 'js', 'html', 
 
         if ($file->isFile() &&in_array(strtolower($file->getExtension()), $exts)) {
 
-            $content .= file_get_contents($file->getReal_path());
+            $content .= file_get_contents($file->getRealPath());
 
         }
     }
