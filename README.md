@@ -7,9 +7,11 @@ Gerar um Hash para Resumo Digital da Aplicação
 <hr />
 
 <p align="left">
-Com esse script PHP você consegue gerar uma hash como o exemplo abaixo para sua apicação.
+Com esse script PHP você consegue gerar uma hash para sua apicação.
 
-No formato txt
+# Exemplo
+
+No formato TXT
 =====================================================================
 
 📄 RESUMO DIGITAL DE HOMOLOGAÇÃO
