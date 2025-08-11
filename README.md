@@ -11,7 +11,8 @@ Com esse script PHP você consegue gerar uma hash para sua apicação.
 
 # Exemplo
 
-No formato TXT
+<h6>No formato TXT</h6>
+
 =====================================================================
 
 📄 RESUMO DIGITAL DE HOMOLOGAÇÃO
@@ -34,7 +35,7 @@ No formato TXT
 
 =====================================================================
 
-No formato JSON
+<h6>No formato JSON</h6>
 <code>
 {
     "data_geracao": "2025-08-11 09:48:09",
