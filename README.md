@@ -31,7 +31,7 @@ Com esse script PHP você consegue gerar uma hash para sua apicação.
 
 🔐 Hash API: 990972d872c9b7b46f9c7f9699ac68650ccfb18eb26c1ac347de70ccd96703775d2aeed59e589cbebdd2c20533a96f5ffb8539e3911ab50ccfc23bafe5177c7b
 
-🔒 Hash Consolidado do Sistema: e4b6240892642336e6618d54157de2d063d986665302006d36a086aef2701a9ab5f7853fd9ed9fbb927283798db33dcf74f4dd137e98d84f83343d8a34ce335a
+🔒 Hash Consolidada do Sistema: e4b6240892642336e6618d54157de2d063d986665302006d36a086aef2701a9ab5f7853fd9ed9fbb927283798db33dcf74f4dd137e98d84f83343d8a34ce335a
 
 =====================================================================
 
@@ -51,7 +51,7 @@ Com esse script PHP você consegue gerar uma hash para sua apicação.
         "caminho": "/var/www/html/meu-projeto-api/",
         "hash": "990972d872c9b7b46f9c7f9699ac68650ccfb18eb26c1ac347de70ccd96703775d2aeed59e589cbebdd2c20533a96f5ffb8539e3911ab50ccfc23bafe5177c7b"
     },
-    "hash_final_sistema": "e4b6240892642336e6618d54157de2d063d986665302006d36a086aef2701a9ab5f7853fd9ed9fbb927283798db33dcf74f4dd137e98d84f83343d8a34ce335a"
+    "hash_consolidada_do_sistema": "e4b6240892642336e6618d54157de2d063d986665302006d36a086aef2701a9ab5f7853fd9ed9fbb927283798db33dcf74f4dd137e98d84f83343d8a34ce335a"
 }
 </code>
 

@@ -103,7 +103,7 @@ if (!empty($apiPath)) {
 
 if (!empty($backendPath) || !empty($apiPath)) {
 
-    $resumo['hash_final_sistema'] = $hashFinal;
+    $resumo['hash_consolidada_do_sistema'] = $hashFinal;
 
 }
 
@@ -135,7 +135,7 @@ if (!empty($apiPath)) {
 
 if (!empty($backendPath) || !empty($apiPath)) {
 
-    $txt .= "\n🔒 Hash Consolidado do Sistema: {$hashFinal}\n";
+    $txt .= "\n🔒 Hash Consolidada do Sistema: {$hashFinal}\n";
 
 }
 $txt .= "\n=====================================================================\n";
