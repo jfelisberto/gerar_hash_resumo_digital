@@ -1,10 +1,6 @@
 # gerar_hash_resumo_digital
 
-<p align="center">
 <h1>Gerar um Hash para Resumo Digital da Aplicação</h1>
-</p>
-
-<hr />
 
 <p align="left">
 Com esse script PHP você consegue gerar uma hash para sua apicação.
