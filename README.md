@@ -1,7 +1,7 @@
 # gerar_hash_resumo_digital
 
 <p align="center">
-Gerar um Hash para Resumo Digital da Aplicação
+<h1>Gerar um Hash para Resumo Digital da Aplicação</h1>
 </p>
 
 <hr />
