@@ -20,7 +20,7 @@ define('HASH', 'sha512');
 /**
  * Gera o hash do diretório especificado
  */
-function gerarHashDoDiretorio($path, $exts = ['php', 'tsx', 'ts', 'js', 'html', 'css', 'vue', 'json']) {
+function generateHashToFolder($path, $exts = ['php', 'tsx', 'ts', 'js', 'html', 'css', 'vue', 'json']) {
 
     $content = '';
     $iterador = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path, FilesystemIterator::SKIP_DOTS));
@@ -42,14 +42,14 @@ $frontend_path = $argv[1] ?? false;
 $backend_path  = $argv[2] ?? false;
 $api_path      = $argv[3] ?? false;
 
-$hash_front = gerarHashDoDiretorio($frontend_path);
+$hash_front = generateHashToFolder($frontend_path);
 
 $hash_merged = $frontend_path;
 $app_first_key = 'Aplicacao';
 
 if (!empty($backend_path)) {
 
-    $hash_back  = gerarHashDoDiretorio($backend_path);
+    $hash_back  = generateHashToFolder($backend_path);
     $hash_merged .= $hash_back;
     $app_first_key = 'Frontend';
 
@@ -57,7 +57,7 @@ if (!empty($backend_path)) {
 
 if (!empty($api_path)) {
 
-    $hash_api    = gerarHashDoDiretorio($api_path);
+    $hash_api    = generateHashToFolder($api_path);
     $hash_merged .= $hash_api;
     $app_first_key = 'Frontend';
 
